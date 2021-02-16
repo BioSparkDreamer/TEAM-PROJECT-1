@@ -4,37 +4,33 @@ using UnityEngine;
 
 public class QuadrantEnter : MonoBehaviour
 {
-
-    static bool isOnBorder = false;
+    static bool tentativeEnter = false;
     public CameraController cameraController;
 
     //..................................................ON QUADRANT ENTRY
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.tag == "Player" && isOnBorder == false)
-        {
-            isOnBorder = true;
-            cameraController.MoveCamera(this.transform.position.x, this.transform.position.y);
-            print("Entered Quadrant");
-            
-        }
 
-        print("Object Detected!");
+    private void OnTriggerEnter2D(Collider2D collision)
+    { 
+        tentativeEnter = true; //Temporarily disables "quadrant return"
+        cameraController.MoveCamera(transform.position.x, transform.position.y);
+        print("Camera: tentative move");
     }
 
     //...................................................ON QUADRANT EXIT
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.collider.tag == "Player")
-        {
-            isOnBorder = false;
-            print("Left Quadrant");
-        }
+        tentativeEnter = false;  //Tells 'quadrant return' below to turn back on
+        print("Camera: fully moved or canceled");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //...................................................ON QUADRANT RETURN
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        
+        if (tentativeEnter == false)
+        {
+            cameraController.MoveCamera(transform.position.x, transform.position.y); //recenters the camera on the quadrant player hasn't fully commited to leaving yet
+        }
     }
 }
