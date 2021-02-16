@@ -24,14 +24,14 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
-        //...........................................Movement Update
+        //...........................................Movement Update (detect input)
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");  
     }
 
     void FixedUpdate()
     {
-        //...........................................Movement FixedUpdate
+        //...........................................Movement FixedUpdate (react to input)
         Vector2 position = rigidbody2d.position;
         position.x = position.x + speedVar * horizontal * Time.deltaTime;
         position.y = position.y + speedVar * vertical * Time.deltaTime;
