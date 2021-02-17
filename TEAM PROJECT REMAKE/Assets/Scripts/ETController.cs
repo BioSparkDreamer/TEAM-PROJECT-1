@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterController : MonoBehaviour
+public class ETController : MonoBehaviour
 {
     //...............................................Movement Variables
     public float baseSpeed = 3.0f;
@@ -45,7 +45,7 @@ public class CharacterController : MonoBehaviour
         Vector2 newPosition = rigidbody2d.position;
         Vector2 oldPosition = rigidbody2d.position;
         newPosition.x = oldPosition.x + speedVar * horizontal * Time.deltaTime;
-        newPosition.y = oldPosition.y + speedVar * vertical * Time.deltaTime;    
+        newPosition.y = oldPosition.y + speedVar * vertical * Time.deltaTime;
 
         rigidbody2d.MovePosition(newPosition);
 
@@ -71,14 +71,14 @@ public class CharacterController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //...........................................Collectible Collider (collects pickups)
-        if (other.gameObject.CompareTag ("Reeses"))
+        if (other.gameObject.CompareTag("Reeses"))
         {
-            other.gameObject.SetActive (false);
+            other.gameObject.SetActive(false);
         }
 
-        if (other.gameObject.CompareTag ("Phone"))
+        if (other.gameObject.CompareTag("Phone"))
         {
-            other.gameObject.SetActive (false);
+            other.gameObject.SetActive(false);
         }
     }
 }

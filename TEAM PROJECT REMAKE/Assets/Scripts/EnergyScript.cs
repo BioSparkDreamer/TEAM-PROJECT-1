@@ -5,27 +5,21 @@ using UnityEngine.UI;
 
 public class EnergyScript : MonoBehaviour
 {
-    public int totalEnergy;
-    // Start is called before the first frame update
+    //...............................................Variables
+    public static int totalEnergy = 9999;
+    public Text energyText;
+
+    //...............................................Instantiate
     void Start()
     {
-        totalEnergy = 9999;
         energyText = GetComponent<Text>();
-        SetEnergyText ();
+        //energyText = GetComponent<Text>();
+        //SetEnergyText ();
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
-        if ( WHAT DO I PUT HERE)
-        {
-            totalEnergy = totalEnergy - 1 * dmgFreq;
-            SetEnergyText ();
-        }
-    }
-
-    void SetEnergyText()
-    {
-        energyText.text = "" + totalEnergy;
+        energyText.text = totalEnergy.ToString();
     }
 }

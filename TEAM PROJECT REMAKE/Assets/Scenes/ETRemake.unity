@@ -1245,7 +1245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5fcf6b3b5ab564481204dcd2587366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyText: {fileID: 1226372933}
+  energyText: {fileID: 0}
 --- !u!1 &1280230240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,9 +1256,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1280230245}
   - component: {fileID: 1280230244}
-  - component: {fileID: 1280230243}
   - component: {fileID: 1280230242}
   - component: {fileID: 1280230241}
+  - component: {fileID: 1280230243}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1322,10 +1322,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1280230240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5d4ae677a73143409bc65c845c5c760, type: 3}
+  m_Script: {fileID: 11500000, guid: c01cdb156b7b434449fcb9e83269b131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 3
+  energyDepletionMultiplier: 10
 --- !u!212 &1280230244
 SpriteRenderer:
   m_ObjectHideFlags: 0

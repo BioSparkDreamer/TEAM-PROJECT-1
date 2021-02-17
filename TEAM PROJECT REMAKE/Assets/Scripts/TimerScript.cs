@@ -8,11 +8,13 @@ public class TimerScript : MonoBehaviour
     public Text timerText;
     private float startTime;
     float timeLeft = 90.0f;
+
     void Start()
     {
         startTime = Time.time;
         timerText = GetComponent<Text>();
     }
+
     void Update()
     {
         float t = Time.time - startTime;
