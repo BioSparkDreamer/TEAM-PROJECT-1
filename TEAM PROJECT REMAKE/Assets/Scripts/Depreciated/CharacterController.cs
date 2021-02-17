@@ -12,9 +12,16 @@ public class CharacterController : MonoBehaviour
     float horizontal;
     float vertical;
     //...............................................Energy Variables
-    public Text energyText;
-    private int totalEnergy;
-    
+    private int newPosx = 0;
+    private int newPosy = 0;
+    private int oldPosx = 0;
+    private int oldPosy = 0;
+    private int distanceTraveled = 0;
+    public int energyDepletionMultiplier = 10;
+
+
+
+
     void Start()
     {
         //...........................................Movement Instantiation
@@ -35,11 +42,30 @@ public class CharacterController : MonoBehaviour
     void FixedUpdate()
     {
         //...........................................Movement FixedUpdate (react to input)
-        Vector2 position = rigidbody2d.position;
-        position.x = position.x + speedVar * horizontal * Time.deltaTime;
-        position.y = position.y + speedVar * vertical * Time.deltaTime;
+        Vector2 newPosition = rigidbody2d.position;
+        Vector2 oldPosition = rigidbody2d.position;
+        newPosition.x = oldPosition.x + speedVar * horizontal * Time.deltaTime;
+        newPosition.y = oldPosition.y + speedVar * vertical * Time.deltaTime;    
 
-        rigidbody2d.MovePosition(position);
+        rigidbody2d.MovePosition(newPosition);
+
+        //convert to integers, because Mathf.Abs needs to for some reason
+        newPosx = (int)newPosition.x;
+        newPosy = (int)newPosition.y;
+        oldPosx = (int)oldPosition.x;
+        oldPosy = (int)oldPosition.y;
+
+        //make the new positions into old
+        oldPosition.x = newPosition.x;
+        oldPosition.y = newPosition.y;
+
+        //find distance traveled
+        distanceTraveled = Mathf.Abs(newPosx - oldPosx) + Mathf.Abs(newPosy - oldPosy);
+        print("Distance Traveled:" + distanceTraveled);
+
+        //adjust energy based on distance traveled
+        EnergyScript.totalEnergy = EnergyScript.totalEnergy - distanceTraveled * energyDepletionMultiplier / 2;
+        print("Energy:" + EnergyScript.totalEnergy);
     }
 
     void OnTriggerEnter2D(Collider2D other)
