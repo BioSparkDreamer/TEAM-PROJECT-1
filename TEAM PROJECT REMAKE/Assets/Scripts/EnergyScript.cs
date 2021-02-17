@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class EnergyScript : MonoBehaviour
 {
 <<<<<<< HEAD
-<<<<<<< HEAD
     //...............................................VARIABLES
     public static int totalEnergy = 9999;
     public Text energyText;
@@ -16,26 +15,15 @@ public class EnergyScript : MonoBehaviour
     public int totalEnergy;
     // Start is called before the first frame update
 >>>>>>> parent of aaad97e (Energy Counter Hooked up)
-=======
-    public int totalEnergy;
-    // Start is called before the first frame update
->>>>>>> parent of aaad97e (Energy Counter Hooked up)
     void Start()
     {
         totalEnergy = 9999;
         energyText = GetComponent<Text>();
 <<<<<<< HEAD
-<<<<<<< HEAD
     }
 
 
     //...............................................UPDATE
-=======
-        SetEnergyText ();
-    }
-
-    // Update is called once per frame
->>>>>>> parent of aaad97e (Energy Counter Hooked up)
 =======
         SetEnergyText ();
     }
