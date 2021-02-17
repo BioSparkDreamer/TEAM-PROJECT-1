@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class ETController : MonoBehaviour
 {
-    //...............................................MOVEMENT VARIABLES
+    //...............................................Movement Variables
     public float baseSpeed = 3.0f;
     private float speedVar;
     Rigidbody2D rigidbody2d;
     float horizontal;
     float vertical;
-    //...............................................ENERGY VARIABLES
+    //...............................................Energy Variables
     private int newPosx = 0;
     private int newPosy = 0;
     private int oldPosx = 0;
@@ -24,7 +24,7 @@ public class ETController : MonoBehaviour
 
     void Start()
     {
-        //...........................................MOVEMENT INSTANTIATION
+        //...........................................Movement Instantiation
         speedVar = baseSpeed;
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
@@ -32,16 +32,16 @@ public class ETController : MonoBehaviour
 
     void Update()
     {
-        //...........................................MOVEMENT UPDATE (detect input)
+        //...........................................Movement Update (detect input)
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-        //...........................................DESTROY ET TIMER
+        //...........................................Destroy ET Timer
         Destroy(gameObject, 90);
     }
 
     void FixedUpdate()
     {
-        //...........................................MOVEMENT FIXEDUPDATE (react to input)
+        //...........................................Movement FixedUpdate (react to input)
         Vector2 newPosition = rigidbody2d.position;
         Vector2 oldPosition = rigidbody2d.position;
         newPosition.x = oldPosition.x + speedVar * horizontal * Time.deltaTime;
@@ -70,7 +70,7 @@ public class ETController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //...........................................COLLECTABLE COLLIDER (collects pickups)
+        //...........................................Collectible Collider (collects pickups)
         if (other.gameObject.CompareTag("Reeses"))
         {
             other.gameObject.SetActive(false);

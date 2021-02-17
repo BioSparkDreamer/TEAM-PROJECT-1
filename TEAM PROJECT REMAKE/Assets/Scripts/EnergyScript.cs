@@ -5,18 +5,19 @@ using UnityEngine.UI;
 
 public class EnergyScript : MonoBehaviour
 {
-    //...............................................VARIABLES
+    //...............................................Variables
     public static int totalEnergy = 9999;
     public Text energyText;
 
-    //...............................................INSTANTIATE
+    //...............................................Instantiate
     void Start()
     {
         energyText = GetComponent<Text>();
+        //energyText = GetComponent<Text>();
+        //SetEnergyText ();
     }
 
-
-    //...............................................UPDATE
+   
     void Update()
     {
         energyText.text = totalEnergy.ToString();

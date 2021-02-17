@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private void Start()
-    {
-        Screen.SetResolution(1280, 480, true);
-    }
     //..................................................MOVE THE CAMERA TO QUADRANT
     public void MoveCamera(float xPosition, float yPosition)
     {
