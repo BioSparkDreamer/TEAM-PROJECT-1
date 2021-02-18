@@ -17,7 +17,7 @@ public class ETController : MonoBehaviour
     private int oldPosx = 0;
     private int oldPosy = 0;
     private int distanceTraveled = 0;
-    public int energyDepletionMultiplier = 66;
+    public int energyDepletionMultiplier = 78;
 
 
 
