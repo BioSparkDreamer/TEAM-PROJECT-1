@@ -19,7 +19,9 @@ public class ETController : MonoBehaviour
     private int distanceTraveled = 0;
     public int energyDepletionMultiplier = 78;
 
+    Animator anim;
 
+    private bool facingRight = true;
 
 
     void Start()
@@ -27,6 +29,9 @@ public class ETController : MonoBehaviour
         //...........................................Movement Instantiation
         speedVar = baseSpeed;
         rigidbody2d = GetComponent<Rigidbody2D>();
+
+        //Aniation initialization
+        anim = GetComponent<Animator>();
     }
 
 
@@ -59,6 +64,35 @@ public class ETController : MonoBehaviour
         oldPosition.x = newPosition.x;
         oldPosition.y = newPosition.y;
 
+        //Flipping the sprite
+
+        if (facingRight == false && horizontal > 0)
+        {
+            Flip();
+        }
+        else if (facingRight == true && horizontal < 0)
+        {
+            Flip();
+        }
+
+        //Animation states
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            anim.SetInteger("State", 1);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            anim.SetInteger("State", 1);
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            anim.SetInteger("State", 0);
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            anim.SetInteger("State", 0);
+        }
+
         //find distance traveled
         distanceTraveled = Mathf.Abs(newPosx - oldPosx) + Mathf.Abs(newPosy - oldPosy);
         print("Distance Traveled:" + distanceTraveled);
@@ -66,6 +100,8 @@ public class ETController : MonoBehaviour
         //adjust energy based on distance traveled
         EnergyScript.totalEnergy = EnergyScript.totalEnergy - distanceTraveled * energyDepletionMultiplier / 2;
         print("Energy:" + EnergyScript.totalEnergy);
+
+        //When adding the float scrip make sure to change the state to 2 like I did for the other animations, and when not floating change it back to 0
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -80,5 +116,13 @@ public class ETController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
         }
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector2 Scaler = transform.localScale;
+        Scaler.x = Scaler.x * -1;
+        transform.localScale = Scaler;
     }
 }
