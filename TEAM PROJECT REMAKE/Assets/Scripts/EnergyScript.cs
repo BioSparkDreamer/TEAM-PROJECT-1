@@ -8,15 +8,12 @@ public class EnergyScript : MonoBehaviour
     //...............................................Variables
     public static int totalEnergy = 9999;
     public Text energyText;
-    public Object Player;
+    public GameObject Player;
 
     //...............................................Instantiate
     void Start()
     {
         energyText = GetComponent<Text>();
-        Player = GetComponent<SpriteRenderer>();
-        //energyText = GetComponent<Text>();
-        //SetEnergyText ();
     }
 
    
