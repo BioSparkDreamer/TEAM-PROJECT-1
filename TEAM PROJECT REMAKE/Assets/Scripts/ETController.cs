@@ -41,7 +41,10 @@ public class ETController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         //...........................................Destroy ET Timer
-        Destroy(gameObject, 90);
+        if (TimerScript.timeLeft <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void FixedUpdate()
@@ -60,12 +63,21 @@ public class ETController : MonoBehaviour
         oldPosx = (int)oldPosition.x;
         oldPosy = (int)oldPosition.y;
 
-        //make the new positions into old
+        //make the new position data into old for next frame
         oldPosition.x = newPosition.x;
         oldPosition.y = newPosition.y;
 
-        //Flipping the sprite
+        //find distance traveled
+        distanceTraveled = Mathf.Abs(newPosx - oldPosx) + Mathf.Abs(newPosy - oldPosy);
+        print("Distance Traveled:" + distanceTraveled);
 
+        //adjust energy based on distance traveled
+        EnergyScript.totalEnergy = EnergyScript.totalEnergy - distanceTraveled * energyDepletionMultiplier / 2;
+        print("Energy:" + EnergyScript.totalEnergy);
+
+        //...........................................Animation
+
+        //Flipping the sprite
         if (facingRight == false && horizontal > 0)
         {
             Flip();
@@ -93,13 +105,7 @@ public class ETController : MonoBehaviour
             anim.SetInteger("State", 0);
         }
 
-        //find distance traveled
-        distanceTraveled = Mathf.Abs(newPosx - oldPosx) + Mathf.Abs(newPosy - oldPosy);
-        print("Distance Traveled:" + distanceTraveled);
-
-        //adjust energy based on distance traveled
-        EnergyScript.totalEnergy = EnergyScript.totalEnergy - distanceTraveled * energyDepletionMultiplier / 2;
-        print("Energy:" + EnergyScript.totalEnergy);
+        
 
         //When adding the float scrip make sure to change the state to 2 like I did for the other animations, and when not floating change it back to 0
     }

@@ -7,7 +7,7 @@ public class TimerScript : MonoBehaviour
 {
     public Text timerText;
     private float startTime;
-    float timeLeft = 90.0f;
+    public static float timeLeft = 90.0f;
 
     void Start()
     {
@@ -23,7 +23,10 @@ public class TimerScript : MonoBehaviour
 
         timerText.text = "" + timeLeft.ToString("f1");
 
-        Destroy(gameObject, 90);
+        if (timeLeft <= 0)
+        {
+            Destroy(gameObject);
+        }
 
         timeLeft -= Time.deltaTime;
     }

@@ -21,7 +21,11 @@ public class EnergyScript : MonoBehaviour
     {
         energyText.text = totalEnergy.ToString();
 
-        Destroy (gameObject, 90);
+        if(TimerScript.timeLeft <= 0)
+        {
+            Destroy(gameObject);
+        }
+        
 
         if (totalEnergy <= 0)
         {
