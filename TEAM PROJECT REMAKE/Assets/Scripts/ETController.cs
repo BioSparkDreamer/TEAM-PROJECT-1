@@ -11,16 +11,23 @@ public class ETController : MonoBehaviour
     Rigidbody2D rigidbody2d;
     float horizontal;
     float vertical;
-    //...............................................Energy Variables
+    //...............................................Movement Tracking Variables
     private int newPosx = 0;
     private int newPosy = 0;
     private int oldPosx = 0;
     private int oldPosy = 0;
     private int distanceTraveled = 0;
+    //...............................................Energy Variables
     public int energyDepletionMultiplier = 78;
-
+    //...............................................Float Action Variables
+    private bool isFloating = false;
+    public float floatActionDuration = 1.0f;
+    public float floatActionSpeed = 1.0f;
+    private float floatDuration;
+    private float floatSpeed;
+    private bool floatDown = false;
+    //...............................................Animation Variables
     Animator anim;
-
     private bool facingRight = true;
 
 
@@ -30,8 +37,12 @@ public class ETController : MonoBehaviour
         speedVar = baseSpeed;
         rigidbody2d = GetComponent<Rigidbody2D>();
 
-        //Aniation initialization
+        //Animation initialization
         anim = GetComponent<Animator>();
+
+        //float action instantiation
+        floatDuration = floatActionDuration;
+        floatSpeed = floatActionSpeed;
     }
 
 
@@ -50,11 +61,13 @@ public class ETController : MonoBehaviour
     void FixedUpdate()
     {
         //...........................................Movement FixedUpdate (react to input)
+        //get positions
         Vector2 newPosition = rigidbody2d.position;
         Vector2 oldPosition = rigidbody2d.position;
         newPosition.x = oldPosition.x + speedVar * horizontal * Time.deltaTime;
         newPosition.y = oldPosition.y + speedVar * vertical * Time.deltaTime;
 
+        //move character
         rigidbody2d.MovePosition(newPosition);
 
         //convert to integers, because Mathf.Abs needs to for some reason
@@ -75,6 +88,38 @@ public class ETController : MonoBehaviour
         EnergyScript.totalEnergy = EnergyScript.totalEnergy - distanceTraveled * energyDepletionMultiplier / 2;
         print("Energy:" + EnergyScript.totalEnergy);
 
+        //...........................................Float action
+        //detect input
+        if (Input.GetKeyDown(KeyCode.Space) && isFloating == false)
+        {
+            isFloating = true;
+        }
+
+        //calculate float time remaining
+        if(isFloating == true)
+        {
+            if(floatDown == false)
+            {
+                floatDuration = floatDuration - Time.deltaTime * floatSpeed;
+                if(floatDuration < 0)
+                {
+                    floatDown = true;
+                }
+            }
+
+            if(floatDown == true)
+            {
+                floatDuration = floatDuration + Time.deltaTime * floatSpeed;
+                if(floatDuration > floatActionDuration)
+                {
+                    floatDuration = floatActionDuration;
+                    isFloating = false;
+                }
+            }
+        }
+
+
+
         //...........................................Animation
 
         //Flipping the sprite
@@ -88,14 +133,18 @@ public class ETController : MonoBehaviour
         }
 
         //Animation states
-        if(distanceTraveled > 0)
+        if(distanceTraveled > 0 && isFloating == false)
         {
             anim.SetInteger("State", 1);
         }
-        if(distanceTraveled == 0)
+        if(distanceTraveled == 0 && isFloating == false)
         {
             anim.SetInteger("State", 0);
-        }        
+        }
+        if(isFloating == true)
+        {
+            anim.SetInteger("State", 2);
+        }
 
         //When adding the float scrip make sure to change the state to 2 like I did for the other animations, and when not floating change it back to 0
     }
