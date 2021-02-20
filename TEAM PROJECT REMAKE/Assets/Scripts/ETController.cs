@@ -88,24 +88,14 @@ public class ETController : MonoBehaviour
         }
 
         //Animation states
-        if (Input.GetKeyDown(KeyCode.A))
+        if(distanceTraveled > 0)
         {
             anim.SetInteger("State", 1);
         }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            anim.SetInteger("State", 1);
-        }
-        if (Input.GetKeyUp(KeyCode.A))
+        if(distanceTraveled == 0)
         {
             anim.SetInteger("State", 0);
-        }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            anim.SetInteger("State", 0);
-        }
-
-        
+        }        
 
         //When adding the float scrip make sure to change the state to 2 like I did for the other animations, and when not floating change it back to 0
     }
