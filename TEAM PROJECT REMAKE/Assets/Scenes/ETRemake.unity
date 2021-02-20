@@ -1648,6 +1648,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 3
   energyDepletionMultiplier: 78
+  floatActionDuration: 0.75
+  floatActionSpeed: 3
 --- !u!212 &1280230244
 SpriteRenderer:
   m_ObjectHideFlags: 0
