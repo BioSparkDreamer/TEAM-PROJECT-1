@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ETRemake.unity
     guid: 68b670faeb6edda4bb78a997b95527e7
+  - enabled: 1
+    path: Assets/Scenes/HowToPlay.unity
+    guid: d2b5db2d5497a7641bacd8e883b2dbcb
   m_configObjects: {}
