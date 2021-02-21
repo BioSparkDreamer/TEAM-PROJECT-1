@@ -12,8 +12,9 @@ public class HoleTeleporter : MonoBehaviour
 
     void Start()
     {
-        xPos = 40;
-        yPos = 40;
+        //...............................................Pull position for teleport function
+        xPos = teleportToLocation.transform.position.x;
+        yPos = teleportToLocation.transform.position.y;
     }
 
    
@@ -22,6 +23,7 @@ public class HoleTeleporter : MonoBehaviour
         
     }
 
+    //...............................................Call teleport function on player collision
     void OnTriggerEnter2D(Collider2D playerCollision)
     {
         if (playerCollision.gameObject.CompareTag("Player"))

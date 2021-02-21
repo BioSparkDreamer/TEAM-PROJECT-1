@@ -29,8 +29,6 @@ public class ETController : MonoBehaviour
     //...............................................Animation Variables
     Animator anim;
     private bool facingRight = true;
-    //...............................................Animation Variables
-    public HoleTeleporter holeTeleporter;
 
 
     void Start()
@@ -182,7 +180,7 @@ public class ETController : MonoBehaviour
         transform.localScale = Scaler;
     }
 
-    //...........................................Collectible Collider (collects pickups)
+    //...........................................Teleport to Hole (called by HoleTeleporter Script)
     public void TeleportToHole(float teleportLocationX, float teleportLocationY)
     {
         transform.position = new Vector2(teleportLocationX, teleportLocationY);
