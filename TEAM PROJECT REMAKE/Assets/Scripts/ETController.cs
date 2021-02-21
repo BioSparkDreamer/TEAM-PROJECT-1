@@ -11,6 +11,7 @@ public class ETController : MonoBehaviour
     Rigidbody2D rigidbody2d;
     float horizontal;
     float vertical;
+    bool isometricPerspective = true;
     //...............................................Movement Tracking Variables
     private int newPosx = 0;
     private int newPosy = 0;
@@ -69,18 +70,32 @@ public class ETController : MonoBehaviour
     {
         //...........................................Movement FixedUpdate (react to input)
         Vector2 newPosition = rigidbody2d.position;
-        Vector2 oldPosition = rigidbody2d.position;
+        Vector2 oldPosition = rigidbody2d.position;        
+
+        //...........................................Normal Movement (hole, side to side only)
+        if (isFloating == false && isometricPerspective == false)
+        {
+            newPosition.x = oldPosition.x + speedVar * horizontal * Time.deltaTime;
+        }
+
+        //...........................................Float action (hole, up only)
+        //calculate float time remaining and float distance
+        if (isFloating == true && isometricPerspective == false)
+        {
+            newPosition.y = oldPosition.y + floatSpeed * Time.deltaTime * 1;
+            floatDown = true;
+        }
 
         //...........................................Normal Movement (overworld)
-        if(isFloating == false)
+        if (isFloating == false && isometricPerspective == true)
         {
             newPosition.x = oldPosition.x + speedVar * horizontal * Time.deltaTime;
             newPosition.y = oldPosition.y + speedVar * vertical * Time.deltaTime;
-        }      
+        }
 
-        //...........................................Float action
+        //...........................................Float action (overworld)
         //calculate float time remaining and float distance
-        if (isFloating == true)
+        if (isFloating == true && isometricPerspective == true)
         {
             if (floatDown == false)
             {
@@ -181,8 +196,9 @@ public class ETController : MonoBehaviour
     }
 
     //...........................................Teleport to Hole (called by HoleTeleporter Script)
-    public void TeleportToHole(float teleportLocationX, float teleportLocationY)
+    public void TeleportToHole(float teleportLocationX, float teleportLocationY, bool isoPers)
     {
         transform.position = new Vector2(teleportLocationX, teleportLocationY);
+        isometricPerspective = isoPers;
     }
 }

@@ -189,6 +189,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 701fa4131741bd94996b3414b3b6e165, type: 3}
+--- !u!4 &57690288 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4539015317738762291, guid: 8a50f3213a76466468f15bf1e76637ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 147387585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &86507901
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,8 +271,23 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1337482772}
     m_Modifications:
+    - target: {fileID: 360854668301060219, guid: 8a50f3213a76466468f15bf1e76637ed,
+        type: 3}
+      propertyPath: etController
+      value: 
+      objectReference: {fileID: 1280230243}
+    - target: {fileID: 4539015316248646873, guid: 8a50f3213a76466468f15bf1e76637ed,
+        type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 974505927}
+    - target: {fileID: 4539015316654637256, guid: 8a50f3213a76466468f15bf1e76637ed,
+        type: 3}
+      propertyPath: etController
+      value: 
+      objectReference: {fileID: 1280230243}
     - target: {fileID: 4539015317738762290, guid: 8a50f3213a76466468f15bf1e76637ed,
         type: 3}
       propertyPath: m_Name
@@ -290,17 +311,17 @@ PrefabInstance:
     - target: {fileID: 4539015317738762291, guid: 8a50f3213a76466468f15bf1e76637ed,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4539015317738762291, guid: 8a50f3213a76466468f15bf1e76637ed,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4539015317738762291, guid: 8a50f3213a76466468f15bf1e76637ed,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4539015317738762291, guid: 8a50f3213a76466468f15bf1e76637ed,
         type: 3}
@@ -310,7 +331,7 @@ PrefabInstance:
     - target: {fileID: 4539015317738762291, guid: 8a50f3213a76466468f15bf1e76637ed,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4539015317738762291, guid: 8a50f3213a76466468f15bf1e76637ed,
         type: 3}
@@ -363,7 +384,7 @@ Transform:
   - {fileID: 1832133572}
   - {fileID: 1061952720}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &383035763
 PrefabInstance:
@@ -883,7 +904,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &735346515 stripped
 Transform:
@@ -1778,7 +1799,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1280230246
 Animator:
@@ -1893,7 +1914,7 @@ RectTransform:
   - {fileID: 1226372932}
   - {fileID: 590151530}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1929,8 +1950,9 @@ Transform:
   m_Children:
   - {fileID: 1942922860}
   - {fileID: 404318097}
+  - {fileID: 57690288}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1348537295
 GameObject:
@@ -2372,7 +2394,7 @@ Transform:
   - {fileID: 1348537296}
   - {fileID: 1630140832}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1942922859
 PrefabInstance:
@@ -2381,6 +2403,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1337482772}
     m_Modifications:
+    - target: {fileID: 360854668301060219, guid: 8a50f3213a76466468f15bf1e76637ed,
+        type: 3}
+      propertyPath: etController
+      value: 
+      objectReference: {fileID: 1280230243}
+    - target: {fileID: 4539015316248646873, guid: 8a50f3213a76466468f15bf1e76637ed,
+        type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 974505927}
+    - target: {fileID: 4539015316654637256, guid: 8a50f3213a76466468f15bf1e76637ed,
+        type: 3}
+      propertyPath: etController
+      value: 
+      objectReference: {fileID: 1280230243}
     - target: {fileID: 4539015317738762290, guid: 8a50f3213a76466468f15bf1e76637ed,
         type: 3}
       propertyPath: m_Name

@@ -257,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportToLocation: {fileID: 4733680626878003619}
   etController: {fileID: 0}
+  isometricPerspective: 1
 --- !u!1 &4539015317459415720
 GameObject:
   m_ObjectHideFlags: 0

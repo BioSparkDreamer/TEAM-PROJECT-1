@@ -7,6 +7,10 @@ public class HoleTeleporter : MonoBehaviour
     //...............................................Variables
     public Transform teleportToLocation;
     public ETController etController;
+
+    //determines if this trigger causes the player to be switched to or from perspective after teleporting
+    public bool isometricPerspective; 
+
     private float xPos;
     private float yPos;
 
@@ -28,7 +32,7 @@ public class HoleTeleporter : MonoBehaviour
     {
         if (playerCollision.gameObject.CompareTag("Player"))
         {
-            etController.TeleportToHole(xPos, yPos);
+            etController.TeleportToHole(xPos, yPos, isometricPerspective);
         }
     }
 
