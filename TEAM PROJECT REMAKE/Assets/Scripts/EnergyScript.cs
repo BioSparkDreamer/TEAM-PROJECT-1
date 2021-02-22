@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EnergyScript : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class EnergyScript : MonoBehaviour
         {
             gameObject.SetActive (false);
             Destroy (Player);
+            SceneManager.LoadScene(3);
         }
         else
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ETController : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class ETController : MonoBehaviour
     //...............................................Animation Variables
     Animator anim;
     private bool facingRight = true;
+    //...............................................Collectible Variables
+    private int count;
 
 
     void Start()
@@ -44,6 +47,8 @@ public class ETController : MonoBehaviour
         //float action instantiation
         floatDuration = floatActionDuration;
         floatSpeed = floatActionSpeed;
+        //...........................................Collectible Count
+        count = 0;
     }
 
 
@@ -59,10 +64,12 @@ public class ETController : MonoBehaviour
             isFloating = true;
         }
 
-        //...........................................Destroy ET Timer
+        //...........................................Destroy ET Timer/Lose Condition
         if (TimerScript.timeLeft <= 0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene(3);
+
         }
     }
 
@@ -170,6 +177,12 @@ public class ETController : MonoBehaviour
         {
             anim.SetInteger("State", 2);
         }
+
+        //...........................................Collectible Win Condition
+        if (count == 3)
+        {
+            SceneManager.LoadScene(4);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -178,11 +191,14 @@ public class ETController : MonoBehaviour
         if (other.gameObject.CompareTag("Reeses"))
         {
             other.gameObject.SetActive(false);
+            EnergyScript.totalEnergy = EnergyScript.totalEnergy + 390;
         }
 
         if (other.gameObject.CompareTag("Phone"))
         {
             other.gameObject.SetActive(false);
+            count = count + 1;
+
         }
     }
 
