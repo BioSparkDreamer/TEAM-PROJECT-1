@@ -2258,6 +2258,10 @@ MonoBehaviour:
   energyDepletionMultiplier: 78
   floatActionDuration: 0.75
   floatActionSpeed: 3
+  background: {fileID: 8300000, guid: 961e781b7cad4e241abf8b8ed8b281ad, type: 3}
+  candy: {fileID: 8300000, guid: 9730979f3b85ec3449089b59f45ff509, type: 3}
+  phone: {fileID: 8300000, guid: 715c2d9b21d671f46a2d48be1d905bf9, type: 3}
+  bike: {fileID: 8300000, guid: e15ee31c959b3554eb0cd5f480e9242e, type: 3}
   Box1: {fileID: 745270043}
   Box2: {fileID: 1957854713}
   Box3: {fileID: 215974206}
@@ -2354,11 +2358,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 961e781b7cad4e241abf8b8ed8b281ad, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

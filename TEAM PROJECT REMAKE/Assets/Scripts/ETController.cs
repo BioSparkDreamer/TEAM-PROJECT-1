@@ -34,8 +34,9 @@ public class ETController : MonoBehaviour
     //...............................................Audio Variables
     AudioSource audioSource;
     public AudioClip background;
-    public AudioClip win;
-    public AudioClip lose;
+    public AudioClip candy;
+    public AudioClip phone;
+    public AudioClip bike;
     //...............................................Collectible Variables
     private int count;
     public GameObject Box1;
@@ -81,10 +82,6 @@ public class ETController : MonoBehaviour
         {
             Destroy(gameObject);
             SceneManager.LoadScene(3);
-
-            //Swtiching to lose audio
-            audioSource.clip = lose;
-            audioSource.Play();
         }
     }
 
@@ -197,10 +194,6 @@ public class ETController : MonoBehaviour
         if (count == 3)
         {
             SceneManager.LoadScene(4);
-
-            //Switch to win audio
-            audioSource.clip = win;
-            audioSource.Play();
         }
     }
 
@@ -211,12 +204,14 @@ public class ETController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             EnergyScript.totalEnergy = EnergyScript.totalEnergy + 390;
+            PlaySound(candy);
         }
 
         if (other.gameObject.CompareTag("Phone 1"))
         {
             other.gameObject.SetActive(false);
             count = count + 1;
+            PlaySound(phone);
             Destroy (Box1);
         }
 
@@ -224,6 +219,7 @@ public class ETController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             count = count + 1;
+            PlaySound(phone);
             Destroy (Box2);
         }
 
@@ -231,6 +227,7 @@ public class ETController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             count = count + 1;
+            PlaySound(bike);
             Destroy (Box3);
         }
     }
