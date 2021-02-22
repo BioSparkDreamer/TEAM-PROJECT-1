@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Reeses
   - Phone
+  - Phone 1
+  - Phone 2
+  - Bike
   layers:
   - Default
   - TransparentFX

@@ -38,6 +38,9 @@ public class ETController : MonoBehaviour
     public AudioClip lose;
     //...............................................Collectible Variables
     private int count;
+    public GameObject Box1;
+    public GameObject Box2;
+    public GameObject Box3;
 
 
     void Start()
@@ -210,11 +213,25 @@ public class ETController : MonoBehaviour
             EnergyScript.totalEnergy = EnergyScript.totalEnergy + 390;
         }
 
-        if (other.gameObject.CompareTag("Phone"))
+        if (other.gameObject.CompareTag("Phone 1"))
         {
             other.gameObject.SetActive(false);
             count = count + 1;
+            Destroy (Box1);
+        }
 
+        if (other.gameObject.CompareTag("Phone 2"))
+        {
+            other.gameObject.SetActive(false);
+            count = count + 1;
+            Destroy (Box2);
+        }
+
+        if (other.gameObject.CompareTag("Bike"))
+        {
+            other.gameObject.SetActive(false);
+            count = count + 1;
+            Destroy (Box3);
         }
     }
 
