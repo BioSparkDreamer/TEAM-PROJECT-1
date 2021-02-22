@@ -398,8 +398,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 268, y: -336}
-  m_SizeDelta: {x: 660.1, y: 240.7}
+  m_AnchoredPosition: {x: 256.81, y: -339.4}
+  m_SizeDelta: {x: 624.19, y: 229.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &579074981
 MonoBehaviour:
@@ -421,7 +421,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 765c6fc861148f445b947cf71b609cb1, type: 3}
-    m_FontSize: 60
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -429,10 +429,10 @@ MonoBehaviour:
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1.25
-  m_Text: 'MUSIC : OPENGAMEART.ORG | FREESOUND.ORG'
+  m_Text: "MUSIC : OPENGAMEART.ORG | \nFREESOUND.ORG"
 --- !u!222 &579074982
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -762,8 +762,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -362, y: -339}
-  m_SizeDelta: {x: 680.5, y: 274.7}
+  m_AnchoredPosition: {x: -368.44, y: -350.78003}
+  m_SizeDelta: {x: 736.88, y: 297.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1587023730
 MonoBehaviour:
@@ -998,8 +998,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -351.8001, y: -335.59995}
-  m_SizeDelta: {x: 660.1, y: 240.7}
+  m_AnchoredPosition: {x: -372.8, y: -350.78}
+  m_SizeDelta: {x: 653.32, y: 254.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2119026270
 MonoBehaviour:
@@ -1029,8 +1029,8 @@ MonoBehaviour:
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1.25
   m_Text: 'LEAD ARTIST - NATALIE DILBECK
 
