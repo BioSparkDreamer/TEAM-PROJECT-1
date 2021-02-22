@@ -31,6 +31,11 @@ public class ETController : MonoBehaviour
     //...............................................Animation Variables
     Animator anim;
     private bool facingRight = true;
+    //...............................................Audio Variables
+    AudioSource audioSource;
+    public AudioClip background;
+    public AudioClip win;
+    public AudioClip lose;
     //...............................................Collectible Variables
     private int count;
 
@@ -49,6 +54,10 @@ public class ETController : MonoBehaviour
         floatSpeed = floatActionSpeed;
         //...........................................Collectible Count
         count = 0;
+        //...........................................Audio Instantiation
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = background;
+        audioSource.Play();
     }
 
 
@@ -70,6 +79,9 @@ public class ETController : MonoBehaviour
             Destroy(gameObject);
             SceneManager.LoadScene(3);
 
+            //Swtiching to lose audio
+            audioSource.clip = lose;
+            audioSource.Play();
         }
     }
 
@@ -182,6 +194,10 @@ public class ETController : MonoBehaviour
         if (count == 3)
         {
             SceneManager.LoadScene(4);
+
+            //Switch to win audio
+            audioSource.clip = win;
+            audioSource.Play();
         }
     }
 
@@ -217,4 +233,11 @@ public class ETController : MonoBehaviour
         transform.position = new Vector2(teleportLocationX, teleportLocationY);
         isometricPerspective = isoPers;
     }
+
+    //...........................................Sound switching function for one clip audio 
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
 }
+
